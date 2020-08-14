@@ -11,9 +11,9 @@ const {
 
 //dummy data
 const articles = [
-    {title: 'Why Halo is Good', genre: 'Opinion', id:'1', commentid: '1'},
-    {title: 'Why Halo is Bad and Why My Coworker is an Idiot With Bad Tastes', genre: 'Opinion', id:'2', commentid: '3'},
-    {title: 'Gamers Kinda Suck Sometimes', genre: 'FACTS', id:'3', commentid: '4'},
+    {title: 'Why Halo is Good', genre: 'Opinion', id:'1', commentIds: ['1', '2']},
+    {title: 'Why Halo is Bad and Why My Coworker is an Idiot With Bad Tastes', genre: 'Opinion', id:'2', commentIds: ['3']},
+    {title: 'Gamers Kinda Suck Sometimes', genre: 'FACTS', id:'3', commentIds: ['4']},
 ]
 const comments = [
     {title: 'Comment 1', content: 'This guy gets it.', id:'1', articleId: '1'},
