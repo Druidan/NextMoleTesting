@@ -70,6 +70,18 @@ const RootQuery = new GraphQLObjectType({
                 //code to grb data from db
                 return _.find(comments, { id: args.id })
             }
+        },
+        articles: {
+            type: new GraphQLList(ArticleType),
+            resolve(parent, arg){
+                return articles
+            }
+        },
+        comments: {
+            type: new GraphQLList(CommentType),
+            resolve(parent, args) {
+                return comments
+            }
         }
     }
 })
