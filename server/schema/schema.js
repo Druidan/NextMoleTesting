@@ -7,6 +7,7 @@ const Comment = require("../models/Comment")
 const { 
     GraphQLID,
     GraphQLList,
+    GraphQLNonNull,
     GraphQLObjectType, 
     GraphQLSchema, 
     GraphQLString 
@@ -87,12 +88,12 @@ const Mutation = new GraphQLObjectType({
         addArticle:{
             type: ArticleType,
             args: {
-                title: { type: GraphQLString },
-                link:  { type: GraphQLString },
-                source:  { type: GraphQLString },
-                sourceREF:  { type: GraphQLString },
-                logo: { type: GraphQLString },
-                summary:  { type: GraphQLString },
+                title: { type: new GraphQLNonNull(GraphQLString) },
+                link:  { type: new GraphQLNonNull(GraphQLString) },
+                source:  { type: new GraphQLNonNull(GraphQLString) },
+                sourceREF:  { type: new GraphQLNonNull(GraphQLString) },
+                logo: { type: new GraphQLNonNull(GraphQLString) },
+                summary:  { type: new GraphQLNonNull(GraphQLString) },
             },
             resolve(parent, args){
                 let article = new Article({
@@ -109,9 +110,9 @@ const Mutation = new GraphQLObjectType({
         addComment: {
             type: CommentType,
             args: {
-                commentor: {type: GraphQLString},
-                content: {type: GraphQLString},
-                articleId: {type: GraphQLID}
+                commentor: {type: new GraphQLNonNull(GraphQLString)},
+                content: {type: new GraphQLNonNull(GraphQLString)},
+                articleId: {type: new GraphQLNonNull(GraphQLID)}
             },
             resolve(parent, args) {
                 let comment = new Comment({
